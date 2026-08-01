@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ismail Abid | SEO Specialist & Technical SEO Expert</title>
+    <meta name="description" content="Portfolio of Ismail Abid - Senior SEO Specialist, WordPress Developer, Technical SEO Expert, and Digital PR Specialist.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap-grid.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        :root {
+            --bg-main: #050816;
+            --bg-secondary: #0F172A;
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --primary: #2563EB;
+            --accent: #38BDF8;
+            --purple-glow: #8B5CF6;
+            --text-white: #FFFFFF;
+            --text-muted: #CBD5E1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Background & Canvas */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Scroll Progress */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--purple-glow));
+            z-index: 10000;
+            width: 0%;
+        }
+
+        /* Custom Cursor Glow */
+        .cursor-glow {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.12), transparent 70%);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            transition: transform 0.08s linear;
+        }
+
+        /* Preloader */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: var(--bg-main);
+            z-index: 99999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .loader-logo {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, var(--accent), var(--purple-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .loader-bar-wrap {
+            width: 200px;
+            height: 4px;
+            background: var(--glass-border);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .loader-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 0.1s linear;
+        }
+
+        .loader-counter {
+            margin-top: 10px;
+            color: var(--text-muted);
+        }
+
+        /* Glassmorphism Styles */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
+        }
+
+        /* Navigation */
+        .navbar-wrapper {
+            position: fixed;
+            top: 20px;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            padding: 0 20px;
+        }
+
+        .glass-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1100px;
+            padding: 12px 30px;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-white);
+            text-decoration: none;
+        }
+
+        .nav-logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+        }
+
+        .nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-white);
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
+        /* Buttons */
+        .btn-glow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, var(--primary), var(--purple-glow));
+            color: #fff;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-glow:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.6);
+        }
+
+        .btn-secondary-glass, .btn-outline-glass, .btn-primary-glass {
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary-glass {
+            background: rgba(37, 99, 235, 0.2);
+            border: 1px solid var(--primary);
+            color: #fff;
+        }
+
+        .btn-secondary-glass {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: #fff;
+        }
+
+        .btn-outline-glass {
+            border: 1px solid var(--glass-border);
+            color: var(--text-muted);
+        }
+
+        .btn-secondary-glass:hover, .btn-outline-glass:hover, .btn-primary-glass:hover {
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            padding-top: 140px;
+            padding-bottom: 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid var(--accent);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        .hero-greeting {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 10px 0;
+            background: linear-gradient(90deg, #fff, var(--text-muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .hero-desc {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* 3D World Globe Container */
+        .hero-3d-world-wrapper {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #hero-globe-canvas {
+            width: 100%;
+            height: 100%;
+            cursor: grab;
+        }
+
+        .floating-badge {
+            position: absolute;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            padding: 8px 14px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            animation: float 4s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        .fb-1 { top: 30px; left: 10px; animation-delay: 0s; }
+        .fb-2 { top: 120px; right: 10px; animation-delay: 1s; }
+        .fb-3 { bottom: 100px; left: 0px; animation-delay: 2s; }
+        .fb-4 { bottom: 30px; right: 20px; animation-delay: 3s; }
+
+        /* Section Utilities */
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .bg-secondary-glow {
+            background: radial-gradient(circle at center, rgba(15, 23, 42, 0.6) 0%, rgba(5, 8, 22, 1) 100%);
+        }
+
+        .sub-heading {
+            color: var(--accent);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .main-heading {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-top: 5px;
+        }
+
+        /* About Section */
+        .about-glass-card {
+            padding: 40px;
+        }
+
+        .about-stats-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .stat-item h4 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 0;
+        }
+
+        .stat-item span {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .about-highlights {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .highlight-chip {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--glass-border);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .highlight-chip i {
+            color: var(--accent);
+            margin-right: 5px;
+        }
+
+        /* Service Cards */
+        .service-card {
+            padding: 30px;
+            height: 100%;
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Skills Bar */
+        .skill-bar-item {
+            margin-bottom: 20px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+        }
+
+        .progress-line {
+            height: 6px;
+            background: var(--glass-border);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-line span {
+            display: block;
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .tools-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tool-chip {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            padding: 10px 18px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+        }
+
+        .tool-chip i {
+            color: var(--accent);
+            margin-right: 6px;
+        }
+
+        /* Timeline */
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--glass-border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 40px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 13px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        .timeline-content {
+            padding: 25px;
+        }
+
+        .timeline-date {
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+
+        .timeline-content h4 {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        /* Project Cards */
+        .project-card {
+            padding: 25px;
+        }
+
+        .project-mockup {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .laptop-screen {
+            height: 180px;
+            border-radius: 8px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .project-placeholder-content {
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .project-placeholder-content i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .project-details h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .project-details p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .project-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Testimonials */
+        .testimonial-card {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .stars {
+            color: #F59E0B;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .testimonial-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 2px;
+        }
+
+        .testimonial-card span {
+            font-size: 0.85rem;
+            color: var(--accent);
+        }
+
+        /* Contact Section */
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .glass-input {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: #fff;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .glass-input:focus {
+            border-color: var(--accent);
+        }
+
+        .glass-hr {
+            border-color: var(--glass-border);
+            margin: 15px 0;
+        }
+
+        .cert-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .cert-icon {
+            font-size: 1.8rem;
+            color: var(--accent);
+        }
+
+        /* Footer */
+        .glass-footer {
+            padding: 30px 0;
+            border-top: 1px solid var(--glass-border);
+            background: rgba(5, 8, 22, 0.9);
+        }
+
+        .back-to-top {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
+            z-index: 1000;
+            text-decoration: none;
+            animation: pulse-green 2s infinite;
+        }
+
+        .wa-tooltip {
+            position: absolute;
+            right: 70px;
+            background: rgba(15, 23, 42, 0.9);
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            border: 1px solid var(--glass-border);
+        }
+
+        .whatsapp-float:hover .wa-tooltip {
+            opacity: 1;
+        }
+
+        /* Keyframes */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-3d-world-wrapper {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="scroll-progress"></div>
+
+    <div class="cursor-glow"></div>
+
+    <canvas id="bg-canvas"></canvas>
+
+    <div id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">IA</div>
+            <div class="loader-bar-wrap">
+                <div class="loader-bar"></div>
+            </div>
+            <div class="loader-counter"><span id="loader-percent">0</span>%</div>
+        </div>
+    </div>
+
+    <header class="navbar-wrapper">
+        <nav class="glass-nav">
+            <a href="#hero" class="nav-logo">Ismail<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="https://wa.me/923334341839?text=Hi%20Ismail%20Abid,%20I%20visited%20your%20portfolio%20website%20and%20I'm%20interested%20in%20working%20with%20you." target="_blank" class="btn-primary-glass nav-cta magnetic">
+                <span>Book Free Consultation</span>
+            </a>
+            <button class="mobile-toggle" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div id="particles-js"></div>
+            <div class="container position-relative z-2">
+                <div class="row align-items-center min-vh-100">
+                    <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+                        <div class="hero-badge">
+                            <span class="badge-dot"></span> Available for New Projects
+                        </div>
+                        <h2 class="hero-greeting">Hello, I'm</h2>
+                        <h1 class="hero-title">ISMAIL ABID</h1>
+                        <h3 class="hero-subtitle">
+                            I am a <span id="typed-text"></span>
+                        </h3>
+                        <p class="hero-desc">
+                            Passionate Digital Marketing & SEO Professional with 5+ years of experience in driving organic growth, technical site optimizations, website architecture development, and authoritative high-tier Digital PR.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="https://wa.me/923334341839?text=Hi%20Ismail%20Abid,%20I%20visited%20your%20portfolio%20website%20and%20I'm%20interested%20in%20working%20with%20you." target="_blank" class="btn-glow magnetic">
+                                <i class="fa-brands fa-whatsapp"></i> Hire Me
+                            </a>
+                            <a href="https://wa.me/923334341839?text=Hi%20Ismail%20Abid,%20I%20visited%20your%20portfolio%20website%20and%20I'm%20interested%20in%20working%20with%20you." target="_blank" class="btn-secondary-glass magnetic">Contact Me</a>
+                            <a href="#" class="btn-outline-glass magnetic"><i class="fa-solid fa-download"></i> Download CV</a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 mt-5 mt-lg-0" data-aos="fade-left" data-aos-duration="1000">
+                        <div class="hero-3d-world-wrapper">
+                            <canvas id="hero-globe-canvas"></canvas>
+                            
+                            <div class="floating-badge fb-1">
+                                <i class="fa-solid fa-globe"></i>
+                                <span>Global Reach</span>
+                            </div>
+                            <div class="floating-badge fb-2">
+                                <i class="fa-solid fa-chart-line"></i>
+                                <span>Rank #1 SERP</span>
+                            </div>
+                            <div class="floating-badge fb-3">
+                                <i class="fa-brands fa-wordpress"></i>
+                                <span>WordPress Dev</span>
+                            </div>
+                            <div class="floating-badge fb-4">
+                                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                                <span>Tech SEO Audit</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section-padding">
+            <div class="container">
+                <div class="section-header text-center" data-aos="fade-up">
+                    <span class="sub-heading">Get To Know Me</span>
+                    <h2 class="main-heading">About Me</h2>
+                </div>
+                <div class="row mt-5 align-items-center">
+                    <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                        <div class="glass-card about-glass-card">
+                            <div class="row align-items-center">
+                                <div class="col-lg-8">
+                                    <h3 class="card-title">Professional Summary</h3>
+                                    <p class="card-text">
+                                        As a Senior SEO & Technical Web Specialist, I bridge the gap between technical web engineering and high-ROI search engine optimization strategies. Over the past 5+ years, I have helped brands transform their digital presence by deploying scalable SEO architectures, executing high-tier link outreach, resolving deep-level technical crawlability errors, and crafting fast, secure WordPress applications.
+                                    </p>
+                                </div>
+                                <div class="col-lg-4 mt-4 mt-lg-0">
+                                    <div class="about-stats-grid">
+                                        <div class="stat-item">
+                                            <h4 class="counter" data-target="5">0</h4>
+                                            <span>+ Years Experience</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <h4 class="counter" data-target="150">0</h4>
+                                            <span>+ Projects Completed</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="about-highlights mt-4">
+                                <div class="highlight-chip"><i class="fa-solid fa-check-circle"></i> SEO Specialist</div>
+                                <div class="highlight-chip"><i class="fa-solid fa-check-circle"></i> Technical SEO</div>
+                                <div class="highlight-chip"><i class="fa-solid fa-check-circle"></i> WordPress Developer</div>
+                                <div class="highlight-chip"><i class="fa-solid fa-check-circle"></i> Digital PR</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section-padding bg-secondary-glow">
+            <div class="container">
+                <div class="section-header text-center" data-aos="fade-up">
+                    <span class="sub-heading">What I Offer</span>
+                    <h2 class="main-heading">Services & Solutions</h2>
+                </div>
+                <div class="row g-4 mt-4">
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="glass-card service-card tilt-card">
+                            <div class="service-icon"><i class="fa-solid fa-magnifying-glass-arrow-right"></i></div>
+                            <h3>Search Engine Optimization</h3>
+                            <p>End-to-end SEO execution focusing on keyword architecture, high intent targeting, and sustained SERP rankings.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="glass-card service-card tilt-card">
+                            <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+                            <h3>Technical SEO Audits</h3>
+                            <p>Crawl optimization, Core Web Vitals remediation, Schema markup, indexing diagnosis, and site speed enhancement.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="glass-card service-card tilt-card">
+                            <div class="service-icon"><i class="fa-brands fa-wordpress-simple"></i></div>
+                            <h3>WordPress Development</h3>
+                            <p>Custom WordPress websites built with security, high speed, dynamic SEO architecture, and mobile responsiveness.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="glass-card service-card tilt-card">
+                            <div class="service-icon"><i class="fa-solid fa-bullhorn"></i></div>
+                            <h3>Digital PR & Backlinks</h3>
+                            <p>High-tier backlink acquisition, strategic outreach campaigns, and authoritative brand placement across top media.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                        <div class="glass-card service-card tilt-card">
+                            <div class="service-icon"><i class="fa-solid fa-pen-nib"></i></div>
+                            <h3>Content Strategy</h3>
+                            <p>Data-driven content clusters, competitor gap analysis, and semantic search optimization designed to convert visitors.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+                        <div class="glass-card service-card tilt-card">
+                            <div class="service-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                            <h3>Analytics & Reporting</h3>
+                            <p>Custom Google Analytics 4 dashboards, Looker Studio reports, and actionable KPI tracking for maximum ROI.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section-padding">
+            <div class="container">
+                <div class="section-header text-center" data-aos="fade-up">
+                    <span class="sub-heading">Capabilities</span>
+                    <h2 class="main-heading">Skills & Tools</h2>
+                </div>
+                <div class="row g-4 mt-4">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <div class="glass-card p-4">
+                            <h3 class="mb-4">Core Competencies</h3>
+                            <div class="skill-bar-item">
+                                <div class="skill-info">
+                                    <span>Technical SEO & Site Audits</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="progress-line"><span style="width: 95%;"></span></div>
+                            </div>
+                            <div class="skill-bar-item">
+                                <div class="skill-info">
+                                    <span>WordPress Design & Development</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="progress-line"><span style="width: 90%;"></span></div>
+                            </div>
+                            <div class="skill-bar-item">
+                                <div class="skill-info">
+                                    <span>Digital PR & Link Building</span>
+                                    <span>88%</span>
+                                </div>
+                                <div class="progress-line"><span style="width: 88%;"></span></div>
+                            </div>
+                            <div class="skill-bar-item">
+                                <div class="skill-info">
+                                    <span>On-Page & Semantic SEO</span>
+                                    <span>92%</span>
+                                </div>
+                                <div class="progress-line"><span style="width: 92%;"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <div class="glass-card p-4">
+                            <h3 class="mb-4">Software & Tools</h3>
+                            <div class="tools-grid">
+                                <div class="tool-chip"><i class="fa-solid fa-screwdriver-wrench"></i> Ahrefs</div>
+                                <div class="tool-chip"><i class="fa-solid fa-chart-line"></i> SEMrush</div>
+                                <div class="tool-chip"><i class="fa-solid fa-spider"></i> Screaming Frog</div>
+                                <div class="tool-chip"><i class="fa-brands fa-google"></i> Google Search Console</div>
+                                <div class="tool-chip"><i class="fa-solid fa-chart-bar"></i> GA4</div>
+                                <div class="tool-chip"><i class="fa-brands fa-wordpress"></i> Elementor / WordPress</div>
+                                <div class="tool-chip"><i class="fa-solid fa-code"></i> HTML5 / CSS3</div>
+                                <div class="tool-chip"><i class="fa-solid fa-gauge-high"></i> PageSpeed Insights</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section-padding bg-secondary-glow">
+            <div class="container">
+                <div class="section-header text-center" data-aos="fade-up">
+                    <span class="sub-heading">Career Path</span>
+                    <h2 class="main-heading">Work Experience</h2>
+                </div>
+                <div class="timeline-container mt-5">
+                    <div class="timeline-item" data-aos="fade-up">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card timeline-content">
+                            <span class="timeline-date">2022 - Present</span>
+                            <h3>Senior SEO & Technical Lead</h3>
+                            <h4>Digital Growth Agency</h4>
+                            <p>Spearheaded comprehensive organic search strategies, leading a team of specialists to optimize enterprise client platforms, execute digital PR, and fix critical technical SEO vulnerabilities.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card timeline-content">
+                            <span class="timeline-date">2020 - 2022</span>
+                            <h3>WordPress Developer & SEO Specialist</h3>
+                            <h4>Tech Solutions Inc.</h4>
+                            <p>Developed custom WordPress websites focused on speed and search engine compliance. Directed link building campaigns and structured data implementation.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card timeline-content">
+                            <span class="timeline-date">2018 - 2020</span>
+                            <h3>SEO Executive & Digital PR Specialist</h3>
+                            <h4>Media Outlets Network</h4>
+                            <p>Managed backlink acquisition programs, executed off-page outreach strategies, and conducted in-depth keyword analysis for scalable content strategies.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding counter-section">
+            <div class="container">
+                <div class="row g-4 text-center">
+                    <div class="col-6 col-md-3" data-aos="zoom-in">
+                        <div class="glass-card p-4">
+                            <h2 class="counter" data-target="5">0</h2>
+                            <p class="mb-0 text-muted">Years Experience</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="glass-card p-4">
+                            <h2 class="counter" data-target="150">0</h2>
+                            <p class="mb-0 text-muted">Projects Completed</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="glass-card p-4">
+                            <h2 class="counter" data-target="98">0</h2>
+                            <p class="mb-0 text-muted">% Satisfaction Rate</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="glass-card p-4">
+                            <h2 class="counter" data-target="10">0</h2>
+                            <p class="mb-0 text-muted">M+ Organic Traffic Driven</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section-padding bg-secondary-glow">
+            <div class="container">
+                <div class="section-header text-center" data-aos="fade-up">
+                    <span class="sub-heading">Portfolio</span>
+                    <h2 class="main-heading">Featured Projects</h2>
+                </div>
+                <div class="row g-4 mt-4">
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="glass-card project-card tilt-card">
+                            <div class="project-mockup">
+                                <div class="laptop-screen">
+                                    <div class="project-placeholder-content">
+                                        <i class="fa-solid fa-chart-line"></i>
+                                        <span>Enterprise E-Commerce SEO Scale</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-details">
+                                <h3>E-Commerce Search Scalability</h3>
+                                <p>Engineered technical SEO, faceted navigation, and dynamic schemas driving +300% organic revenue traffic growth within 6 months.</p>
+                                <a href="https://wa.me/923334341839?text=Hi%20Ismail%20Abid,%20I'm%20interested%20in%20a%20project%20similar%20to%20E-Commerce%20Search%20Scalability." target="_blank" class="project-link">Discuss Project <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="glass-card project-card tilt-card">
+                            <div class="project-mockup">
+                                <div class="laptop-screen">
+                                    <div class="project-placeholder-content">
+                                        <i class="fa-brands fa-wordpress"></i>
+                                        <span>SaaS WordPress Web Platform</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-details">
+                                <h3>High-Speed SaaS Web Architecture</h3>
+                                <p>Custom WordPress development with Sub-second page loads, 99+ Core Web Vitals score, and high conversion funnel setup.</p>
+                                <a href="https://wa.me/923334341839?text=Hi%20Ismail%20Abid,%20I'm%20interested%20in%20a%20project%20similar%20to%20High-Speed%20SaaS%20Web%20Architecture." target="_blank" class="project-link">Discuss Project <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section-padding bg-secondary-glow">
+            <div class="container">
+                <div class="section-header text-center" data-aos="fade-up">
+                    <span class="sub-heading">Get In Touch</span>
+                    <h2 class="main-heading">Let's Work Together</h2>
+                </div>
+                <div class="row g-4 mt-4">
+                    <div class="col-lg-5" data-aos="fade-right">
+                        <div class="glass-card p-4 h-100">
+                            <h3>Contact Details</h3>
+                            <p class="text-muted">Feel free to reach out directly via WhatsApp or Email for consultations or collaborations.</p>
+                            
+                            <div class="contact-info-item">
+                                <i class="fa-brands fa-whatsapp contact-icon"></i>
+                                <div>
+                                    <h5>WhatsApp</h5>
+                                    <a href="https://wa.me/923334341839" target="_blank" style="color: var(--accent); text-decoration: none;">+92 333 4341839</a>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <i class="fa-solid fa-envelope contact-icon"></i>
+                                <div>
+                                    <h5>Email</h5>
+                                    <a href="mailto:contact@ismailabid.com" style="color: var(--accent); text-decoration: none;">contact@ismailabid.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <i class="fa-solid fa-location-dot contact-icon"></i>
+                                <div>
+                                    <h5>Location</h5>
+                                    <p class="mb-0 text-muted">Available Globally (Remote)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7" data-aos="fade-left">
+                        <div class="glass-card p-4">
+                            <form id="contact-form" onsubmit="return false;">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <input type="text" class="glass-input" placeholder="Your Name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="email" class="glass-input" placeholder="Your Email" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <input type="text" class="glass-input" placeholder="Subject">
+                                    </div>
+                                    <div class="col-12">
+                                        <textarea class="glass-input" rows="5" placeholder="Project Details..." required></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <a href="https://wa.me/923334341839?text=Hi%20Ismail%20Abid,%20I%20visited%20your%20portfolio%20website%20and%20I'm%20interested%20in%20working%20with%20you." target="_blank" class="btn-glow w-100 text-center magnetic">
+                                            Send Message via WhatsApp
+                                        </a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2026 Ismail Abid. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+                    <a href="#hero" class="back-to-top magnetic"><i class="fa-solid fa-arrow-up"></i> Back to top</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/923334341839?text=Hi%20Ismail%20Abid,%20I%20visited%20your%20portfolio%20website%20and%20I'm%20interested%20in%20working%20with%20you." target="_blank" class="whatsapp-float magnetic" aria-label="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="wa-tooltip">Chat on WhatsApp</span>
+    </a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Preloader Logic
+            let count = 0;
+            const loaderPercent = document.getElementById("loader-percent");
+            const loaderBar = document.querySelector(".loader-bar");
+            const loader = document.getElementById("loader");
+
+            const interval = setInterval(() => {
+                count += 5;
+                if (loaderPercent) loaderPercent.innerText = count;
+                if (loaderBar) loaderBar.style.width = `${count}%`;
+
+                if (count >= 100) {
+                    clearInterval(interval);
+                    gsap.to(loader, {
+                        opacity: 0,
+                        duration: 0.8,
+                        onComplete: () => {
+                            loader.style.display = "none";
+                            initAOS();
+                        }
+                    });
+                }
+            }, 30);
+
+            // Custom Cursor Glow
+            const cursor = document.querySelector(".cursor-glow");
+            document.addEventListener("mousemove", (e) => {
+                if (cursor) {
+                    cursor.style.left = `${e.clientX}px`;
+                    cursor.style.top = `${e.clientY}px`;
+                }
+            });
+
+            // Scroll Progress Bar
+            window.addEventListener("scroll", () => {
+                const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                const progress = document.getElementById("scroll-progress");
+                if (progress) progress.style.width = scrolled + "%";
+            });
+
+            // Typed.js Initialization
+            if (document.getElementById("typed-text")) {
+                new Typed("#typed-text", {
+                    strings: [
+                        "SEO Specialist",
+                        "WordPress Developer",
+                        "Technical SEO Expert",
+                        "Digital PR Specialist"
+                    ],
+                    typeSpeed: 50,
+                    backSpeed: 30,
+                    loop: true
+                });
+            }
+
+            // Three.js Background Particle Stars
+            const initThreeBG = () => {
+                const canvas = document.getElementById("bg-canvas");
+                if (!canvas) return;
+
+                const scene = new THREE.Scene();
+                const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+                renderer.setSize(window.innerWidth, window.innerHeight);
+
+                const geometry = new THREE.BufferGeometry();
+                const count = 500;
+                const positions = new Float32Array(count * 3);
+
+                for (let i = 0; i < count * 3; i++) {
+                    positions[i] = (Math.random() - 0.5) * 10;
+                }
+
+                geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+                const material = new THREE.PointsMaterial({
+                    size: 0.015,
+                    color: 0x38BDF8
+                });
+
+                const points = new THREE.Points(geometry, material);
+                scene.add(points);
+                camera.position.z = 3;
+
+                const animate = () => {
+                    requestAnimationFrame(animate);
+                    points.rotation.y += 0.001;
+                    points.rotation.x += 0.0005;
+                    renderer.render(scene, camera);
+                };
+
+                animate();
+
+                window.addEventListener('resize', () => {
+                    camera.aspect = window.innerWidth / window.innerHeight;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(window.innerWidth, window.innerHeight);
+                });
+            };
+
+            initThreeBG();
+
+            // -------------------------------------------------------------
+            // NEW: 3D Globe / World Sphere in Hero Right Section
+            // -------------------------------------------------------------
+            const initHero3DWorld = () => {
+                const canvas = document.getElementById("hero-globe-canvas");
+                if (!canvas) return;
+
+                const container = canvas.parentElement;
+                const width = container.clientWidth;
+                const height = container.clientHeight;
+
+                const scene = new THREE.Scene();
+                const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+                camera.position.z = 5;
+
+                const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+                renderer.setSize(width, height);
+                renderer.setPixelRatio(window.devicePixelRatio);
+
+                // Earth Sphere Wireframe / Digital Mesh
+                const globeGroup = new THREE.Group();
+                scene.add(globeGroup);
+
+                // Inner Main Sphere
+                const sphereGeometry = new THREE.SphereGeometry(1.6, 32, 32);
+                const sphereMaterial = new THREE.MeshPhongMaterial({
+                    color: 0x0F172A,
+                    emissive: 0x2563EB,
+                    emissiveIntensity: 0.2,
+                    wireframe: true,
+                    transparent: true,
+                    opacity: 0.7
+                });
+                const mainSphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+                globeGroup.add(mainSphere);
+
+                // Outer Atmosphere Points (World Dots Grid)
+                const dotsGeometry = new THREE.BufferGeometry();
+                const dotsCount = 1200;
+                const dotPositions = new Float32Array(dotsCount * 3);
+
+                for (let i = 0; i < dotsCount; i++) {
+                    const u = Math.random();
+                    const v = Math.random();
+                    const theta = u * 2.0 * Math.PI;
+                    const phi = Math.acos(2.0 * v - 1.0);
+                    const r = 1.8;
+
+                    dotPositions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+                    dotPositions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+                    dotPositions[i * 3 + 2] = r * Math.cos(phi);
+                }
+
+                dotsGeometry.setAttribute('position', new THREE.BufferAttribute(dotPositions, 3));
+                const dotsMaterial = new THREE.PointsMaterial({
+                    size: 0.035,
+                    color: 0x38BDF8,
+                    transparent: true,
+                    opacity: 0.9
+                });
+
+                const dotsMesh = new THREE.Points(dotsGeometry, dotsMaterial);
+                globeGroup.add(dotsMesh);
+
+                // Glowing Ring Orbit
+                const ringGeometry = new THREE.RingGeometry(2.1, 2.15, 64);
+                const ringMaterial = new THREE.MeshBasicMaterial({ color: 0x8B5CF6, side: THREE.DoubleSide, transparent: true, opacity: 0.6 });
+                const ringMesh = new THREE.Mesh(ringGeometry, ringMaterial);
+                ringMesh.rotation.x = Math.PI / 2.3;
+                globeGroup.add(ringMesh);
+
+                // Lighting
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+                scene.add(ambientLight);
+
+                const pointLight = new THREE.PointLight(0x38BDF8, 2, 50);
+                pointLight.position.set(5, 5, 5);
+                scene.add(pointLight);
+
+                // Interactive Mouse Tilt
+                let mouseX = 0;
+                let mouseY = 0;
+
+                document.addEventListener('mousemove', (e) => {
+                    mouseX = (e.clientX / window.innerWidth - 0.5) * 0.5;
+                    mouseY = (e.clientY / window.innerHeight - 0.5) * 0.5;
+                });
+
+                // Animation Loop
+                const animateGlobe = () => {
+                    requestAnimationFrame(animateGlobe);
+
+                    // Auto Rotation
+                    globeGroup.rotation.y += 0.005;
+                    dotsMesh.rotation.y -= 0.002;
+
+                    // Mouse Interaction Shift
+                    globeGroup.rotation.x += (mouseY - globeGroup.rotation.x) * 0.05;
+                    globeGroup.rotation.z += (mouseX - globeGroup.rotation.z) * 0.05;
+
+                    renderer.render(scene, camera);
+                };
+
+                animateGlobe();
+
+                window.addEventListener('resize', () => {
+                    const newWidth = container.clientWidth;
+                    const newHeight = container.clientHeight;
+                    camera.aspect = newWidth / newHeight;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(newWidth, newHeight);
+                });
+            };
+
+            initHero3DWorld();
+
+            // Particles.js Setup
+            if (window.particlesJS) {
+                particlesJS("particles-js", {
+                    particles: {
+                        number: { value: 40, density: { enable: true, value_area: 800 } },
+                        color: { value: "#ffffff" },
+                        opacity: { value: 0.1 },
+                        size: { value: 3 },
+                        line_linked: { enable: true, distance: 150, color: "#8b5cf6", opacity: 0.1, width: 1 },
+                        move: { enable: true, speed: 1.5 }
+                    }
+                });
+            }
+
+            // Initialize AOS & Vanilla Tilt
+            function initAOS() {
+                if (window.AOS) {
+                    AOS.init({
+                        duration: 800,
+                        once: true
+                    });
+                }
+            }
+
+            if (window.VanillaTilt) {
+                VanillaTilt.init(document.querySelectorAll(".tilt-card"), {
+                    max: 12,
+                    speed: 400,
+                    glare: true,
+                    "max-glare": 0.15
+                });
+            }
+
+            // Counter Animation Setup
+            const counters = document.querySelectorAll(".counter");
+            let counted = false;
+
+            window.addEventListener("scroll", () => {
+                const counterSection = document.querySelector(".counter-section");
+                if (!counterSection) return;
+                const position = counterSection.getBoundingClientRect();
+
+                if (position.top < window.innerHeight && !counted) {
+                    counters.forEach(counter => {
+                        const target = +counter.getAttribute("data-target");
+                        let count = 0;
+                        const speed = target / 50;
+
+                        const updateCount = () => {
+                            count += speed;
+                            if (count < target) {
+                                counter.innerText = Math.ceil(count);
+                                setTimeout(updateCount, 30);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        };
+
+                        updateCount();
+                    });
+                    counted = true;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
